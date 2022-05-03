@@ -1,5 +1,4 @@
-
-function App() {
-  return <div>Hello! - loading project</div>
+import {Widget} from "./components/Widget";
+export function App(){
+  return <Widget/>
 }
-export default App
