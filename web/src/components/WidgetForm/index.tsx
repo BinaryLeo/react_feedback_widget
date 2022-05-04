@@ -1,7 +1,7 @@
-import { CloseButton } from "./CloseButton";
-import bugImageUrl from '../assets/bug.svg';
-import ideaImageUrl from '../assets/idea.svg';
-import thoughtImageUrl from '../assets/thought.svg';
+import { CloseButton } from "../CloseButton";
+import bugImageUrl from '../../assets/bug.svg';
+import ideaImageUrl from '../../assets/idea.svg';
+import thoughtImageUrl from '../../assets/thought.svg';
 import { useState } from "react";
 
 const feedbackTypes = {
