@@ -18,7 +18,7 @@ export function FeedbackContentStep({
   const [comment, setComment] = useState('');
   function handleSubmitFeedback(e: FormEvent) {
     e.preventDefault();
-    console.log({screenshot, comment});
+    //console.log({screenshot, comment});
     onFeedbackSent();
   }
   return (

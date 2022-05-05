@@ -13,11 +13,11 @@ export function ScreenshotButton({
 }: ScreenshotButtonProps) {
   const [isTakenScreenshot, setIsTakenScreenShot] = useState(false)
   async function handleTakeScreenshot() {
-    setIsTakenScreenShot(true)
-    const canvas = await html2canvas(document.querySelector('html')!)
-    const base64image = canvas.toDataURL('image/png')
-    onScreenshotTook(base64image)
-    setIsTakenScreenShot(false)
+    setIsTakenScreenShot(true);
+    const canvas = await html2canvas(document.querySelector('html')!);
+    const base64image = canvas.toDataURL('image/png');
+    onScreenshotTook(base64image);//send the screenshot to the parent component
+    setIsTakenScreenShot(false);//reset the state
   }
   if (screenshot) {
     return (
@@ -29,7 +29,7 @@ export function ScreenshotButton({
         style={{
           backgroundImage: `url(${screenshot})`,
           backgroundPosition: 'right bottom',
-          backgroundSize: 180,
+          backgroundSize: 180,// a small preview of the screenshot
         }}
       >
         <Trash weight="fill" />
