@@ -1,10 +1,10 @@
-import bugImageUrl from '../../assets/bug.svg'
-import ideaImageUrl from '../../assets/idea.svg'
-import thoughtImageUrl from '../../assets/thought.svg'
-import { useState } from 'react'
-import { FeedbackTypeStep } from './Steps/FeedbackTypeStep'
-import { FeedbackContentStep } from './Steps/FeedbackContentStep'
-import { FeedbackSuccessStep } from './Steps/FeedbackSuccessStep'
+import bugImageUrl from '../../assets/bug.svg';
+import ideaImageUrl from '../../assets/idea.svg';
+import thoughtImageUrl from '../../assets/thought.svg';
+import { useState } from 'react';
+import { FeedbackTypeStep } from './Steps/FeedbackTypeStep';
+import { FeedbackContentStep } from './Steps/FeedbackContentStep';
+import { FeedbackSuccessStep } from './Steps/FeedbackSuccessStep';
 
 export const feedbackTypes = {
   BUG: {
@@ -29,7 +29,7 @@ export const feedbackTypes = {
     },
   },
 }
-export type FeedbackType = keyof typeof feedbackTypes
+export type FeedbackType = keyof typeof feedbackTypes;
 export function WidgetForm() {
   const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null) //type of feedback that the user is submitting
   const [feedbackSent, setFeedbackSent] = useState(false)
