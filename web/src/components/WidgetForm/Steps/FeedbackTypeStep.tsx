@@ -1,4 +1,4 @@
-import { FeedbackType, feedbackTypes } from ".."
+import { FeedbackType, feedbackTypes } from "..";
 import { CloseButton } from "../../CloseButton";
 interface FeedbackTypeStepProps {
     /* the interface receives a props named onFeedbackTypeChanged
