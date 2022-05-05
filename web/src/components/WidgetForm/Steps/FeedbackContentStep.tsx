@@ -1,22 +1,25 @@
-import { ArrowLeft } from 'phosphor-react';
-import { FormEvent, useState } from 'react';
-import { FeedbackType, feedbackTypes } from '..';
-import { CloseButton } from '../../CloseButton';
-import { ScreenshotButton } from '../ScreenshotButton';
+import { ArrowLeft } from 'phosphor-react'
+import { FormEvent, useState } from 'react'
+import { FeedbackType, feedbackTypes } from '..'
+import { CloseButton } from '../../CloseButton'
+import { ScreenshotButton } from '../ScreenshotButton'
 interface FeedbackContentStepProps {
-  feedbackType: FeedbackType;
+  feedbackType: FeedbackType
   onFeedbackRestartRequest: () => void;
+  onFeedbackSent: () => void;
 }
 export function FeedbackContentStep({
   feedbackType,
   onFeedbackRestartRequest,
+  onFeedbackSent,
 }: FeedbackContentStepProps) {
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const feedbackTypeData = feedbackTypes[feedbackType];
-  const[comment,setComment] = useState('');
-  function handleSubmitFeedback(e:FormEvent) {
-      e.preventDefault();
-console.log(screenshot, comment)
+  const [comment, setComment] = useState('');
+  function handleSubmitFeedback(e: FormEvent) {
+    e.preventDefault();
+    console.log({screenshot, comment});
+    onFeedbackSent();
   }
   return (
     <>
@@ -50,12 +53,12 @@ console.log(screenshot, comment)
         />
         <footer className=" flex gap-2 mt-2">
           <ScreenshotButton
-          screenshot={screenshot}
-          onScreenshotTook={setScreenshot}
+            screenshot={screenshot}
+            onScreenshotTook={setScreenshot}
           />
           <button
             type="submit"
-            disabled={comment.length === 0}// if comment is empty, disable the button
+            disabled={comment.length === 0} // if comment is empty, disable the button
             className="p-2 bg-brand-500 rounded-md border-transparent flex-1 justify-center
           items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2
            focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500
