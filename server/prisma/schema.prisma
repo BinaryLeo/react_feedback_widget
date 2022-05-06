@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Feedback {
+  id String @id @default(uuid()) // an id is required - unique universal id
+
+  type       String
+  comment    String
+  screenshot String? //optional
+
+  @@map("feedbacks")
+}
+
+//npx prisma migrate dev  for development
+//npx prisma migate deploy  for deployment
+// npx prisma studio for studio mode
