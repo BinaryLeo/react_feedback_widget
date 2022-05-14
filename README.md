@@ -23,7 +23,7 @@
 
 ## 💡 how it works
 
-Requirements
+Requirements:
 * [NodeJs](https://nodejs.org/en/)
 * [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/package/npm)
 * [Expo CLI](https://docs.expo.dev/workflow/expo-cli)
