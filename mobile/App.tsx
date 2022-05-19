@@ -1,48 +1,35 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-import React, { useEffect } from "react";
-import * as SplashScreen from "expo-splash-screen";
-import { theme } from "./src/theme";
-import  Widget from "./src/components/Widget";
+import { View } from "react-native";
 import {
   useFonts,
   Inter_400Regular,
   Inter_500Medium,
 } from "@expo-google-fonts/inter";
+import { NativeBaseProvider } from "native-base";
+import { theme } from "./src/theme";
+import Widget from "./src/components/Widget";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
   });
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
+  if (!fontsLoaded) {
+    return <></>;
+  }
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <StatusBar
-       style="light"
-       backgroundColor="transparent"
-       translucent />
-      <Widget />
-    </View>
+    <NativeBaseProvider>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: theme.colors.background,
+        }}
+      >
+        <Widget />
+
+        <StatusBar style="light" backgroundColor="transparent" translucent />
+      </View>
+    </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

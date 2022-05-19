@@ -1,13 +1,15 @@
 //rnbc snippet - extension: R component
 import React, {useRef} from "react";
 import { TouchableOpacity } from "react-native";
-import { theme } from "../../theme";
+import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import { Options } from "../Options";
 import { ChatTeardropDots } from "phosphor-react-native";
 import BottomSheet from '@gorhom/bottom-sheet';
 import { styles } from "./styles";
-import { gestureHandlerRootHOC } from "react-native-gesture-handler";
+import { theme } from "../../theme";
+
 function Widget() {
-  const bottomSheetRef = useRef<BottomSheet>(null);
+ const bottomSheetRef = useRef<BottomSheet>(null);
  function handleOpen(){
    bottomSheetRef.current?.expand(); // if ! null expands
  }
@@ -26,9 +28,12 @@ function Widget() {
       <BottomSheet
       ref={bottomSheetRef}
       snapPoints={[1,280]}//closed and opened
+      backgroundStyle={styles.modal}
+      handleIndicatorStyle={styles.indicator}
+
 
      >
-
+      <Options/>
      </BottomSheet>
     </>
   );
