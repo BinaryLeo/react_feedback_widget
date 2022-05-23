@@ -37,7 +37,7 @@ function Widget() {
 
      >
       <Form
-       feedbackType={"OTHER"}
+       feedbackType={"IDEA"}
       />
      </BottomSheet>
     </>
