@@ -2,8 +2,9 @@
 import React, {useRef} from "react";
 import { TouchableOpacity } from "react-native";
 import { gestureHandlerRootHOC } from "react-native-gesture-handler";
-import { Options } from "../Options";
+
 import { Form } from "../Form";
+import { Success } from "../Success";
 import { ChatTeardropDots } from "phosphor-react-native";
 import BottomSheet from '@gorhom/bottom-sheet';
 import { styles } from "./styles";
@@ -36,9 +37,7 @@ function Widget() {
 
 
      >
-      <Form
-       feedbackType={"IDEA"}
-      />
+      <Success/>
      </BottomSheet>
     </>
   );

@@ -35,16 +35,15 @@ export function Form({ feedbackType }: Props) {
         style={styles.input}
         placeholder="Something is not working as expected. Tell us the details of the problem."
         placeholderTextColor={theme.colors.text_secondary}
-     />
-     <View style={styles.footer}>
-         <ScreenshotButton
-         screenshot={"https://github.com/binaryleo.png"}
-         onRemoveShot={()=>{}}
-         onTakeShot={()=>{}}/>
-          <Button
-           isLoading={false}
-          />
-     </View>
+      />
+      <View style={styles.footer}>
+        <ScreenshotButton
+          screenshot={"https://github.com/binaryleo.png"}
+          onRemoveShot={() => {}}
+          onTakeShot={() => {}}
+        />
+        <Button isLoading={false} />
+      </View>
     </View>
   );
 }
