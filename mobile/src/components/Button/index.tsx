@@ -2,7 +2,7 @@ import React from "react";
 import {
   TouchableOpacity,
   TouchableOpacityProps,
-  ActivityIndicator,
+  ActivityIndicator, //*Displays a circular loading indicator
   Text,
 } from "react-native";
 import { theme } from "../../theme";

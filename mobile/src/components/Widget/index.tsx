@@ -16,13 +16,13 @@ import { feedbackTypes } from "../../utils/feedbackTypes";
 import { ChatTeardropDots } from "phosphor-react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
 
-export type FeedbackType = keyof typeof feedbackTypes; //Key and types
+export type FeedbackType = keyof typeof feedbackTypes; //*Key and types
 function Widget() {
   const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
   const [feedbackSent, setFeedbackSent] = useState(false);
   const bottomSheetRef = useRef<BottomSheet>(null);
   function handleOpen() {
-    bottomSheetRef.current?.expand(); // if ! null expands
+    bottomSheetRef.current?.expand(); //* if ! null expands
   }
   function handleRestartFeedback() {
   setFeedbackType(null);

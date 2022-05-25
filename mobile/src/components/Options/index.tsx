@@ -25,7 +25,7 @@ export function Options({onFeedbackTypeChanged}:Props) {
               key={key}
               title={value.title}
               image={value.image}
-              onPress={() => onFeedbackTypeChanged(key as FeedbackType)} // cast to FeedbackType
+              onPress={() => onFeedbackTypeChanged(key as FeedbackType)} //* cast to FeedbackType
               />  
             ))
             }
