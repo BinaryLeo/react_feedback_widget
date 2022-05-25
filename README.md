@@ -19,7 +19,7 @@
 
 * [Frontend](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/web)  - [ReactJS](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/), [ViteJS](https://vitejs.dev/), [Phosphor Icons](https://phosphoricons.com/)
 * [Backend](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/server) - [Express](https://expressjs.com/), [Typescript](https://www.typescriptlang.org/), [Prisma](https://www.prisma.io/), [Mailtrap](https://mailtrap.io/), [Nodemailer](https://nodemailer.com/), [Jest](https://jestjs.io/), [PosgreSQL](https://www.postgresql.org/), [Postman](https://www.postman.com/)
-* Mobile application - [React native](https://reactnative.dev/), [Expo](https://expo.dev/expo-go)
+* [Mobile application](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/mobile) - [React native](https://reactnative.dev/), [Expo](https://expo.dev/expo-go)
 
 ## 💡 how it works
 
