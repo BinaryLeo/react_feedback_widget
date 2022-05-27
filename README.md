@@ -77,8 +77,22 @@ $ npm run dev
 ```
 
 Mobile
+**Make sure to have the server running**
 ```bash
-... under development
+# From the project root folder access the 'mobile' folder
+$ cd mobile
+
+# Install the dependencies
+$ npm install
+
+# If you are going to emulate with android, run this command
+$ npm run android
+
+# If you are going to emulate with ios, run this command
+$ npm run ios
+
+# Or just start the bundle
+$ npm run start
 ```
 
 ## 📄 License
