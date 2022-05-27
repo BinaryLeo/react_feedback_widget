@@ -45,6 +45,9 @@ $ npm install or yarn
 
 # Start the application
 $ npm run dev
+
+# To acess Prisma
+$ npx prisma studio
 ```
 
 Server
