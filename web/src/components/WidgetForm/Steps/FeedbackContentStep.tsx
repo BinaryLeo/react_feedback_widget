@@ -69,7 +69,7 @@ export function FeedbackContentStep({
           />
           <button
             type="submit"
-            disabled={comment.length === 0} //* if comment is empty, disable the button
+            disabled={comment.length === 0 || isSendingFeedback} //* if comment is empty, disable the button
             className="p-2 bg-brand-500 rounded-md border-transparent flex-1 justify-center
           items-center text-sm hover:bg-brand-300 focus:outline-none focus:ring-2
            focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500
