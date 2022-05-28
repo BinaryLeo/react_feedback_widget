@@ -1,6 +1,7 @@
 import { CloseButton } from '../../CloseButton';
 import Success from '../../../assets/success.svg';
 
+
 interface FeedbackSuccessStepProps {
   onFeedbackRestartRequest: () => void;
 }
