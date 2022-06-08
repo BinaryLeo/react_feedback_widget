@@ -17,14 +17,14 @@ export function FeedbackSuccessStep({ onFeedbackRestartRequested }: FeedbackSucc
           <path d="M31.78 8.36202C30.624 7.61102 29.076 7.94002 28.322 9.09802L17.436 25.877L12.407 21.227C11.393 20.289 9.81103 20.352 8.87403 21.365C7.93703 22.379 7.99903 23.961 9.01303 24.898L16.222 31.564C16.702 32.009 17.312 32.229 17.918 32.229C18.591 32.229 19.452 31.947 20.017 31.09C20.349 30.584 32.517 11.82 32.517 11.82C33.268 10.661 32.938 9.11302 31.78 8.36202Z" fill="white"/>
         </svg>
       
-        <span className="text-xl mt-2">Agradecemos o feedback</span>
+        <span className="text-xl mt-2">We appreciate the feedback</span>
 
         <button 
           type="button"
           onClick={onFeedbackRestartRequested}
           className="py-2 px-6 mt-6 bg-zinc-800 rounded-md border-transparent text-sm leading-6 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors"
         >
-          Quero enviar outro
+          I want to send another
         </button>
       </div>
     </>

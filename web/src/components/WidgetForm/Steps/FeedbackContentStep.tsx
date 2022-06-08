@@ -1,4 +1,4 @@
-import { AppWindow, ArrowLeft } from 'phosphor-react';
+import {ArrowLeft} from 'phosphor-react';
 import { FormEvent, useState } from 'react';
 import { FeedbackType, feedbackTypes } from '..';
 import { CloseButton } from '../../CloseButton';
@@ -24,11 +24,11 @@ export function FeedbackContentStep({
     e.preventDefault();
     setIsSendingFeedback(true);
     //*console.log({screenshot, comment});
-    await api.post('/feedbacks', { 
-      type:feedbackType,
-      screenshot,
+    await api.post('/feedbacks', {
+      type: feedbackType,
       comment,
-    }) 
+      screenshot,
+    });
     
     setIsSendingFeedback(false);
     onFeedbackSent();
