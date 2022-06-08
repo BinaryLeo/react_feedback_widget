@@ -1,10 +1,10 @@
 import { CloseButton } from '../../CloseButton';
 
 interface FeedbackSuccessStepProps {
-  onFeedbackRestartRequested: () => void;
+  onFeedbackRestartRequest: () => void;
 }
 
-export function FeedbackSuccessStep({ onFeedbackRestartRequested }: FeedbackSuccessStepProps) {
+export function FeedbackSuccessStep({ onFeedbackRestartRequest }: FeedbackSuccessStepProps) {
   return (
     <>
       <header>
@@ -21,7 +21,7 @@ export function FeedbackSuccessStep({ onFeedbackRestartRequested }: FeedbackSucc
 
         <button 
           type="button"
-          onClick={onFeedbackRestartRequested}
+          onClick={onFeedbackRestartRequest}
           className="py-2 px-6 mt-6 bg-zinc-800 rounded-md border-transparent text-sm leading-6 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors"
         >
           I want to send another
