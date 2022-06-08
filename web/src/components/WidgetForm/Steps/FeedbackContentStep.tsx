@@ -29,8 +29,9 @@ export function FeedbackContentStep({
       screenshot,
       comment,
     }) 
-    onFeedbackSent();
+    
     setIsSendingFeedback(false);
+    onFeedbackSent();
   }
   return (
     <>
