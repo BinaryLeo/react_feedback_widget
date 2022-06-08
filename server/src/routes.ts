@@ -15,6 +15,7 @@ const transport = nodemailer.createTransport({
 });
 routes.post("/feedbacks", async (req, res) => {
   const { type, comment, screenshot } = req.body;
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   const prismaFeedbackRepository = new PrismaFeedbacksRepository();
   const nodemailerMailAdapter = new NodemailerMailAdapter();
   const submitFeedbackUseCase = new SubmitFeedbackUseCase(
