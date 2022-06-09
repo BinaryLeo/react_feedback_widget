@@ -1,5 +1,4 @@
 
-
 <div align="center" style="margin: 20px; text-align: center">
   <p> A Feedback widget built using React JS and Tailwind CSS</p>
   <p>Get feedback from your customers with screenshots directly of your app. Fast, easy and built-in</p>
@@ -9,7 +8,6 @@
   ![GitHub top language](https://img.shields.io/github/languages/top/BinaryLeo/react_feedback_widget_web?style=flat-square)
   
 </div>
-
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-how-it-works">How it works</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -17,6 +15,12 @@
   <a href="#-license">License</a>
 
 </p>
+<div>
+
+  ![binary_mockup](https://user-images.githubusercontent.com/72607039/172846428-f16e66f6-4d23-4a46-a3b8-0f82a82e0ff7.png)
+
+</div>  
+
 <div align="center" style="margin: 20px; text-align: center">
  
   ![feedback_web](https://user-images.githubusercontent.com/72607039/166928087-e342a37b-c747-4b28-8833-f0583cc3d608.gif)
