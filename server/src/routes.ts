@@ -15,6 +15,8 @@ const transport = nodemailer.createTransport({
 });
 routes.post("/feedbacks", async (req, res) => {
   const { type, comment, screenshot } = req.body;
+
+  try {
   const prismaFeedbackRepository = new PrismaFeedbacksRepository();
   const nodemailerMailAdapter = new NodemailerMailAdapter();
   const submitFeedbackUseCase = new SubmitFeedbackUseCase(
@@ -29,4 +31,8 @@ routes.post("/feedbacks", async (req, res) => {
   });
 
   return res.status(StatusCodes.OK).send();
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send();
+  }
 });
