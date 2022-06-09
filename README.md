@@ -2,6 +2,7 @@
 
 <div align="center" style="margin: 20px; text-align: center">
   <p> A Feedback widget built using React JS and Tailwind CSS</p>
+  <p>Get feedback from your customers with screenshots directly of your app. Fast, easy and built-in</p>
   
   [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/BinaryLeo/react_feedback_widget_web/blob/main/LICENSE)
   ![GitHub last commit](https://img.shields.io/github/last-commit/BinaryLeo/react_feedback_widget_web?style=flat-square)
@@ -12,6 +13,7 @@
 <p align="center">
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-how-it-works">How it works</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-use">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-license">License</a>
 
 </p>
@@ -28,11 +30,15 @@
 * [Mobile application](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/mobile) - [React native](https://reactnative.dev/), [Expo](https://expo.dev/expo-go), [Bottom Sheet](https://gorhom.github.io/react-native-bottom-sheet/).
 
 ## 💡 how it works
+This is a feedback widget built with React to be applied on any website for a simple interaction between the customer and the company.
+
+## 💡 how to use
 
 Requirements:
 * [NodeJs](https://nodejs.org/en/)
 * [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/package/npm)
 * [Expo CLI](https://docs.expo.dev/workflow/expo-cli)
+
 
  Clone the repository.
 - Open the project from your IDE.
@@ -52,8 +58,6 @@ $ npm install or yarn
 # Start the application
 $ npm run dev
 
-# To acess Prisma
-$ npx prisma studio
 ```
 
 Server
