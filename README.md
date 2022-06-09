@@ -60,10 +60,6 @@ $ npm install or yarn
 
 # Edit your '.env.example' to '.env' and add your credentials
 DATABASE_URL="postgresql://server:password@localhost:5432/databasename?schema=public"
-SMTP="smtp.mailtrap.io"
-USERMAIL="mailtrap username"
-USERPASS="mailtrap password"
-
 
 # With a PostgreSQL running, run the migrations
 $ npx prisma migrate dev
