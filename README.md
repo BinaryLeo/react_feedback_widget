@@ -13,7 +13,13 @@
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-how-it-works">How it works</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-license">License</a>
+
 </p>
+<div align="center" style="margin: 20px; text-align: center">
+ 
+  ![feedback_web](https://user-images.githubusercontent.com/72607039/166928087-e342a37b-c747-4b28-8833-f0583cc3d608.gif)
+ 
+  </div>
 
 ## 🧪 technologies
 
