@@ -64,7 +64,17 @@ $ npm run dev
 
 ```
 
+
 Server
+
+.env file
+
+![image](https://user-images.githubusercontent.com/72607039/213920314-68b63822-5e3b-4e52-8208-4f93838cab3a.png)
+
+Migration
+
+![image](https://user-images.githubusercontent.com/72607039/213920513-84b763bb-040a-4444-bb50-03e16245df9b.png)
+
 ```bash
 # From the project root folder access the 'server' folder
 $ cd server
@@ -72,7 +82,7 @@ $ cd server
 # Install the dependencies
 $ npm install or yarn
 
-# Edit your '.env.example' to '.env' and add your credentials
+# Edit your '.env.example' to '.env' and add your credentials (See picture above)
 DATABASE_URL="postgresql://server:password@localhost:5432/databasename?schema=public"
 
 # With a PostgreSQL running, run the migrations
