@@ -63,6 +63,9 @@ $ npm install or yarn
 $ npm run dev
 
 ```
+Web application - Postgres local DB
+
+![image](https://user-images.githubusercontent.com/72607039/213924325-f28b4556-25d8-4d8e-9a61-10139eb654db.png)
 
 
 Server
