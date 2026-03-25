@@ -1,0 +1,135 @@
+services:
+  # ==========================================
+  # PostgreSQL Database
+  # ==========================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: feedback-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: feedback_widget
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - feedback-network
+
+  # ==========================================
+  # Backend API
+  # Automatically runs migrations and seeds on startup
+  # Works WITHOUT AI - AI is completely optional!
+  # ==========================================
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: development
+    container_name: feedback-api
+    restart: unless-stopped
+    environment:
+      # ==========================================
+      # DATABASE (Auto-configured for Docker)
+      # ==========================================
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/feedback_widget?schema=public
+      
+      # ==========================================
+      # SERVER SETTINGS
+      # ==========================================
+      NODE_ENV: development
+      PORT: 3333
+      CORS_ORIGIN: http://localhost:4321,http://localhost:3000,http://localhost:3001
+      
+      # ==========================================
+      # SECURITY (REQUIRED!)
+      # ==========================================
+      # Generate a secure key: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-dev-key-change-in-production-for-security}
+      
+      # ==========================================
+      # AI CONFIGURATION (OPTIONAL!)
+      # ==========================================
+      # The widget works GREAT without AI!
+      # To enable AI, set AI_PROVIDER to MOONSHOT or ANTHROPIC
+      # and provide your API key
+      #
+      # Get Moonshot key: https://platform.moonshot.ai
+      # Get Anthropic key: https://console.anthropic.com
+      #
+      AI_PROVIDER: ${AI_PROVIDER:-NONE}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-kimi-k2.5}
+      
+      # ==========================================
+      # EMAIL / SMTP (OPTIONAL - Mailtrap for dev)
+      # ==========================================
+      # Sign up for free at https://mailtrap.io
+      # Or use your own SMTP provider
+      SMTP_HOST: ${SMTP_HOST:-sandbox.smtp.mailtrap.io}
+      SMTP_PORT: ${SMTP_PORT:-2525}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ENABLE_EMAIL_NOTIFICATIONS: ${ENABLE_EMAIL_NOTIFICATIONS:-false}
+    ports:
+      - "3333:3333"
+    volumes:
+      # Mount source code for hot reload in development
+      - ./api:/app
+      # Preserve node_modules
+      - /app/node_modules
+      - /app/dist
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - feedback-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3333/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # ==========================================
+  # Frontend (Optional)
+  # ==========================================
+  # For the best development experience with hot reload,
+  # we recommend running the frontend OUTSIDE Docker:
+  # 
+  #   cd web && npm install && npm run dev
+  #
+  # Uncomment below if you prefer running in Docker:
+  # ------------------------------------------
+  # web:
+  #   image: node:20-alpine
+  #   container_name: feedback-web
+  #   working_dir: /app
+  #   environment:
+  #     PUBLIC_API_URL: http://localhost:3333
+  #   ports:
+  #     - "4321:4321"
+  #   volumes:
+  #     - ./web:/app
+  #     - /app/node_modules
+  #   depends_on:
+  #     api:
+  #       condition: service_healthy
+  #   networks:
+  #     - feedback-network
+  #   command: sh -c "npm ci && npm run dev -- --host"
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  feedback-network:
+    driver: bridge

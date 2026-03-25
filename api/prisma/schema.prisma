@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Feedback {
+  id          String   @id @default(uuid())
+  type        String   // BUG | IDEA | OTHER
+  comment     String
+  screenshot  String?  // Base64 encoded screenshot
+  
+  // AI Analysis Fields
+  aiAnalyzed      Boolean   @default(false)
+  aiSuggestedType String?   // AI's suggested type (may differ from user selection)
+  aiConfidence    Float?    // 0-1 confidence score
+  aiPriority      String?   // CRITICAL | HIGH | MEDIUM | LOW
+  aiSentiment     String?   // FRUSTRATED | HAPPY | NEUTRAL | ANGRY
+  aiSummary       String?   // AI-generated concise summary
+  aiCategory      String?   // UI_ISSUE | PERFORMANCE | SECURITY | FEATURE_REQUEST | etc.
+  aiActionItems   String[]  // Extracted actionable tasks
+  aiLanguage      String?   // Detected language code (en, es, pt, etc.)
+  aiUILanguage    String?   // UI language when feedback was submitted
+  aiTranslated    String?   // English translation if needed
+  aiResponse      String?   // AI-generated response to user (in content language)
+  aiTranslatedResponse String? // AI-generated response translated to UI language
+  aiScreenshotDesc String?  // AI description of screenshot
+  
+  // Duplicate Detection
+  duplicateOfId   String?
+  duplicateOf     Feedback? @relation("DuplicateFeedbacks", fields: [duplicateOfId], references: [id])
+  duplicates      Feedback[] @relation("DuplicateFeedbacks")
+  similarityScore Float?    // Similarity to existing feedback (0-1)
+  
+  // User rating of AI response
+  rating          String?   // POSITIVE | NEGATIVE
+  ratingNote      String?   // Optional justification when negative
+
+  // Routing
+  assignedTo      String?   // Team member ID or email
+  team            String?   // dev | support | product | design | etc.
+  status          String    @default("PENDING") // PENDING | IN_PROGRESS | RESOLVED | CLOSED | REJECTED
+  statusNote      String?   // Optional note when changing status
+  
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([type])
+  @@index([createdAt])
+  @@index([aiPriority])
+  @@index([aiSentiment])
+  @@index([status])
+  @@index([team])
+  @@map("feedbacks")
+}
+
+// AI Configuration per project/tenant
+model AIConfig {
+  id            String   @id @default(uuid())
+  projectId     String   @unique
+  
+  // Provider Settings
+  provider      String   // MOONSHOT | ANTHROPIC | OPENAI | NONE
+  apiKey        String?  // Encrypted API key
+  baseUrl       String?  // Custom base URL for API
+  model         String   // kimi-k1 | claude-3-sonnet | gpt-4o | etc.
+  
+  // Feature Toggles
+  enabled           Boolean @default(false)
+  autoCategorize    Boolean @default(true)
+  validateType      Boolean @default(true)
+  priorityScoring   Boolean @default(true)
+  sentimentAnalysis Boolean @default(true)
+  autoResponse      Boolean @default(true)
+  screenshotAnalysis Boolean @default(true)
+  duplicateDetection Boolean @default(true)
+  smartRouting      Boolean @default(true)
+  languageDetection Boolean @default(true)
+  
+  // Thresholds
+  minConfidence     Float   @default(0.7)
+  duplicateThreshold Float  @default(0.85)
+
+  // Guardrail: describes the app/industry context for AI relevance filtering
+  businessContext   String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("ai_configs")
+}
+
+// Team/Routing Rules
+model RoutingRule {
+  id          String   @id @default(uuid())
+  
+  // Matching Criteria
+  keywords    String[] // Keywords that trigger this rule
+  categories  String[] // AI categories
+  types       String[] // BUG | IDEA | OTHER
+  priorities  String[] // CRITICAL | HIGH | MEDIUM | LOW
+  
+  // Route To
+  team        String   // dev | support | product | design
+  assignee    String?  // Specific person
+  
+  // Auto-actions
+  autoReply   String?  // Template for auto-reply
+  
+  priority    Int      @default(0) // Rule priority order
+  enabled     Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("routing_rules")
+}

@@ -1,0 +1,119 @@
+version: '3.8'
+
+# Production Docker Compose
+# Use this for self-hosted deployments (VPS, EC2, etc.)
+# For managed platforms (Railway, Render), use their deployment methods instead
+#
+#  IMPORTANT: This setup automatically:
+#   1. Creates the PostgreSQL database on first run
+#   2. Runs all Prisma migrations automatically
+#   3. Seeds initial data if needed
+#   4. Starts the API server
+#
+# You only need to set the environment variables below!
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: feedback-postgres-prod
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-feedback_widget}
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+    networks:
+      - feedback-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: production
+    container_name: feedback-api-prod
+    restart: always
+    environment:
+      # ==========================================
+      # REQUIRED SETTINGS
+      # ==========================================
+      NODE_ENV: production
+      PORT: 3333
+      DATABASE_URL: ${DATABASE_URL}
+      
+      # ==========================================
+      # SECURITY (REQUIRED!)
+      # ==========================================
+      # Generate a secure key: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY}
+      
+      # ==========================================
+      # CORS (Allow your frontend domain)
+      # ==========================================
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+      
+      # ==========================================
+      # AI CONFIGURATION (OPTIONAL!)
+      # ==========================================
+      # The widget works GREAT without AI!
+      # To enable AI, set AI_PROVIDER to MOONSHOT or ANTHROPIC
+      # and provide your API key
+      #
+      # Get Moonshot key: https://platform.moonshot.ai
+      # Get Anthropic key: https://console.anthropic.com
+      #
+      AI_PROVIDER: ${AI_PROVIDER:-NONE}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-kimi-k2.5}
+      
+      # ==========================================
+      # EMAIL / SMTP (OPTIONAL - for notifications)
+      # ==========================================
+      # Sign up for free at https://mailtrap.io for development
+      # Or use your own SMTP provider for production
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ENABLE_EMAIL_NOTIFICATIONS: ${ENABLE_EMAIL_NOTIFICATIONS:-false}
+    ports:
+      - "${API_PORT:-3333}:3333"
+    networks:
+      - feedback-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # The entrypoint automatically runs migrations on startup
+    # Optional: Use a reverse proxy like Nginx or Traefik instead of exposing port directly
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.api.rule=Host(`api.yourdomain.com`)"
+
+  # Optional: Nginx reverse proxy
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: feedback-nginx
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./ssl:/etc/nginx/ssl:ro
+  #   networks:
+  #     - feedback-network
+  #   depends_on:
+  #     - api
+
+volumes:
+  postgres_prod_data:
+
+networks:
+  feedback-network:
+    driver: bridge

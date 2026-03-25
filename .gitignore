@@ -1,1 +1,49 @@
-.idea
+# Dependencies
+node_modules/
+
+# Build outputs
+api/dist/
+api/build/
+web/dist/
+web/.astro/
+mobile/dist/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Expo
+mobile/.expo/
+mobile/web-build/
+
+# Prisma
+api/prisma/*.db
+api/prisma/*.db-journal
+
+# Mobile
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*

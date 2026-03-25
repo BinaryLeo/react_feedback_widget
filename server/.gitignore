@@ -1,7 +1,0 @@
-.idea
-node_modules
-.env
-# Ignore test-related files
-/coverage.data
-/coverage/
-dist

@@ -1,128 +1,416 @@
+# Feedback Widget
 
-<div align="center" style="margin: 20px; text-align: center">
-  <p> A Feedback widget built using React JS and Tailwind CSS</p>
-  <p>Get feedback from your customers with screenshots directly from your app. Fast, easy and built-in</p>
-  
-  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/BinaryLeo/react_feedback_widget_web/blob/main/LICENSE)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/BinaryLeo/react_feedback_widget_web?style=flat-square)
-  ![GitHub top language](https://img.shields.io/github/languages/top/BinaryLeo/react_feedback_widget_web?style=flat-square)
-  
-</div>
-<p align="center">
-  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-how-it-works">How it works</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-how-to-use">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">License</a>
+AI-powered feedback widget with intelligent triage, drag & drop positioning, and multi-language support.
 
-</p>
-<div>
+![Feedback Widget Promo](assets/promo.png)
 
-  ![binary_mockup](https://user-images.githubusercontent.com/72607039/172846428-f16e66f6-4d23-4a46-a3b8-0f82a82e0ff7.png)
+## Features
 
-</div>  
+- **AI Triage** - Auto-categorization, priority & sentiment analysis
+- **Duplicate Detection** - AI-powered detection of similar feedbacks
+- **Vision AI** - Analyzes attached screenshots
+- **Auto-Response** - Generates helpful AI responses
+- **Smart Routing** - Auto-assigns to teams (dev/design/support)
+- **i18n** - Multi-language support (EN, ES, PT-BR, ZH)
+- **Drag & Drop** - Reposition widget anywhere on screen
+- **Security** - Rate limiting, encryption, input validation
 
-<div align="center" style="margin: 20px; text-align: center">
- 
-  ![feedback_web](https://user-images.githubusercontent.com/72607039/166928087-e342a37b-c747-4b28-8833-f0583cc3d608.gif)
- 
-  </div>
+## Demo
 
-## 🧪 technologies
+### Drag and Drop Widget
 
-* [Frontend](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/web)  - [ReactJS](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Typescript](https://www.typescriptlang.org/), [ViteJS](https://vitejs.dev/), [Phosphor Icons](https://phosphoricons.com/).
-* [Backend](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/server) - [Express](https://expressjs.com/), [Typescript](https://www.typescriptlang.org/), [Prisma](https://www.prisma.io/), [Mailtrap](https://mailtrap.io/), [Nodemailer](https://nodemailer.com/), [Jest](https://jestjs.io/), [PostgreSQL](https://www.postgresql.org/), [Postman](https://www.postman.com/).
-* [Mobile application](https://github.com/BinaryLeo/react_feedback_widget_web/tree/main/mobile) - [React native](https://reactnative.dev/), [Expo](https://expo.dev/expo-go), [Bottom Sheet](https://gorhom.github.io/react-native-bottom-sheet/).
+<video src="assets/drag-zone.mov" width="600" controls></video>
 
-## 💡 how it works
-This is a feedback widget built with React to be applied on any website for a simple interaction between the customer and the company.
+The widget can be dragged and repositioned anywhere on the screen for optimal user experience.
 
-## 💡 how to use
+## Quick Start
 
-Requirements:
-* [NodeJs](https://nodejs.org/en/)
-* [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/package/npm)
-* [Expo CLI](https://docs.expo.dev/workflow/expo-cli)
+### Prerequisites
 
+- Node.js 20+
+- Docker (for PostgreSQL)
 
- Clone the repository.
-- Open the project from your IDE.
-- Follow the steps below:
-
-Web application
-
-**Make sure to have the server running**
+### Option 1: Docker (Recommended)
 
 ```bash
-# From the project root folder access the 'web' folder
-$ cd web
+# 1. Clone
+git clone https://github.com/yourusername/react_feedback_widget.git
+cd react_feedback_widget
 
-# Install the dependencies
-$ npm install or yarn
+# 2. Start backend (PostgreSQL + API)
+./start.sh
 
-# Start the application
-$ npm run dev
+# 3. Start frontend (new terminal)
+cd web && npm install && npm run dev
 
+# Access the application:
+# - Frontend: http://localhost:4321
+# - API Docs: http://localhost:3333/docs
 ```
-Web application - Postgres local DB
 
-![image](https://user-images.githubusercontent.com/72607039/213924325-f28b4556-25d8-4d8e-9a61-10139eb654db.png)
-
-
-Server
-
-.env file
-
-![image](https://user-images.githubusercontent.com/72607039/213920314-68b63822-5e3b-4e52-8208-4f93838cab3a.png)
-
-Migration
-
-![image](https://user-images.githubusercontent.com/72607039/213920513-84b763bb-040a-4444-bb50-03e16245df9b.png)
+### Option 2: Manual Setup
 
 ```bash
-# From the project root folder access the 'server' folder
-$ cd server
+# 1. Clone
+git clone https://github.com/yourusername/react_feedback_widget.git
+cd react_feedback_widget
 
-# Install the dependencies
-$ npm install or yarn
+# 2. Start PostgreSQL
+docker run -d --name feedback-db \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_DB=feedback_widget \
+  -p 5432:5432 postgres:16-alpine
 
-# Edit your '.env.example' to '.env' and add your credentials (See picture above)
-DATABASE_URL="postgresql://server:password@localhost:5432/databasename?schema=public"
+# 3. Setup & start backend
+cd api
+cp .env.example .env
+npm install
+npx prisma migrate dev
+npm run dev
 
-# With a PostgreSQL running, run the migrations
-$ npx prisma migrate dev
+# 4. Setup & start frontend (new terminal)
+cd web
+cp .env.example .env
+npm install
+npm run dev
 
-# You can access Prisma Studio from:
-$ npx prisma studio
-
-# Start the server
-$ npm run dev
-
-# Routes 
- Post: http://localhost:3333/feedbacks
-
+# Open http://localhost:4321
 ```
 
-Mobile
-**Make sure to have the server running**
+## AI Setup (Optional)
+
+The widget works great without AI. To enable:
+
+1. Get API key from [Anthropic](https://console.anthropic.com) or [Moonshot](https://platform.moonshot.ai)
+2. Configure in admin dashboard or set in `api/.env`:
+
+```env
+AI_PROVIDER=ANTHROPIC
+AI_API_KEY=sk-your-key
+AI_MODEL=claude-sonnet-4-20250514
+```
+
+See [api/README.md#ai-features-optional](api/README.md#-ai-features-optional) for detailed AI configuration and features.
+
+## Project Structure
+
+```
+├── api/              # Backend (Express + Prisma)
+│   ├── src/
+│   │   ├── domain/   # Business logic
+│   │   ├── application/  # Use cases
+│   │   ├── infrastructure/  # DB, AI, security
+│   │   └── presentation/    # Controllers
+│   └── prisma/       # Database schema
+│
+├── web/              # Frontend (Astro + React)
+│   ├── src/
+│   │   ├── components/  # Widget, AI, Admin
+│   │   ├── hooks/       # Reusable logic
+│   │   └── lib/         # Crypto, i18n, store
+│   └── public/
+│
+├── mobile/           # Mobile app (React Native + Expo)
+│   ├── src/
+│   │   ├── components/  # UI components
+│   │   ├── hooks/       # Custom hooks
+│   │   ├── screens/     # App screens
+│   │   └── services/    # API clients
+│   └── App.tsx
+│
+└── docs/             # Documentation
+```
+
+See [web/README.md](web/README.md) for web frontend architecture details.  
+See [mobile/README.md](mobile/README.md) for mobile app documentation.
+
+## API Endpoints
+
+| Method | Endpoint           | Description      |
+| ------ | ------------------ | ---------------- |
+| GET    | `/health`          | Health check     |
+| POST   | `/feedbacks`       | Create feedback  |
+| GET    | `/feedbacks`       | List feedbacks   |
+| GET    | `/feedbacks/stats` | Statistics       |
+| POST   | `/ai/analyze`      | Analyze text     |
+| GET    | `/ai/config`       | Get AI config    |
+| PUT    | `/ai/config`       | Update AI config |
+
+## API Documentation
+
+Interactive API documentation is automatically available when the backend is running:
+
+- **Development**: http://localhost:3333/docs
+- **Production**: `https://your-domain.com/docs`
+
+Powered by [Scalar](https://scalar.com) with features:
+
+- Interactive API explorer
+- Request/response examples
+- Built-in test client
+- OpenAPI schema download
+
+## Tech Stack
+
+- **Backend**: Node.js 20+, Express 5, PostgreSQL 16, Prisma 7
+- **Frontend**: Astro 5, React 19, Tailwind CSS 4
+- **AI**: Anthropic Claude, Moonshot Kimi
+- **Security**: AES-256-GCM, Rate limiting, Zod validation
+
+## Docker Commands
+
 ```bash
-# From the project root folder access the 'mobile' folder
-$ cd mobile
-
-# Install the dependencies
-$ npm install
-
-# If you are going to emulate with android, run this command
-$ npm run android
-
-# If you are going to emulate with ios, run this command
-$ npm run ios
-
-# Or just start the bundle
-$ npm run start
+./start.sh up         # Start all services
+./start.sh down       # Stop all services
+./start.sh logs       # View logs
+./start.sh reset      # Reset database (WARNING: deletes data!)
+./start.sh migrate    # Run migrations
+./start.sh studio     # Open Prisma Studio (DB GUI)
 ```
 
-## 📄 License
+## Production Deployment
 
-This project was built under MIT. See the file [LICENSE](LICENSE) for more details.
+### Option 1: Self-Hosted with Docker (Recommended)
+
+For VPS, EC2, DigitalOcean, etc.
+
+```bash
+# 1. Setup
+./start.sh
+
+# 2. Configure environment
+cp .env.production.example .env.production
+nano .env.production
+
+# 3. Deploy
+docker-compose -f docker-compose.prod.yml --env-file .env.production up -d
+```
+
+**Required changes in `.env.production`:**
+
+```env
+POSTGRES_PASSWORD=your-strong-password
+DATABASE_URL=postgresql://postgres:your-password@postgres:5432/feedback_widget
+CORS_ORIGIN=https://yourdomain.com
+```
+
+**Optional - Enable AI:**
+
+```env
+AI_PROVIDER=ANTHROPIC
+AI_API_KEY=sk-your-key
+```
+
+### Option 2: Vercel + Railway
+
+#### Deploy Backend to Railway
+
+```bash
+cd api
+railway login
+railway init
+railway add --database postgres
+railway up
+```
+
+Set environment variables in Railway dashboard:
+
+```env
+DATABASE_URL=${{Postgres.DATABASE_URL}}
+PORT=3333
+CORS_ORIGIN=https://your-frontend.vercel.app
+```
+
+#### Deploy Frontend to Vercel
+
+```bash
+cd web
+vercel
+```
+
+Set environment variable:
+
+```env
+PUBLIC_API_URL=https://your-api.up.railway.app
+```
+
+### Updates
+
+```bash
+# Docker Self-Hosted
+git pull
+docker-compose -f docker-compose.prod.yml up -d
+
+# Railway
+cd api && git pull && railway up
+
+# Vercel
+cd web && git pull && vercel --prod
+```
+
+### Troubleshooting
+
+| Issue                      | Solution                                                                                                                         |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| CORS Errors                | Add your frontend domain to API CORS settings                                                                                    |
+| Database Connection Failed | Check `DATABASE_URL` format, verify database is running with `docker-compose ps`, check logs with `docker-compose logs postgres` |
+| AI Not Working             | Verify `AI_PROVIDER` and `AI_API_KEY`, test connection in admin dashboard                                                        |
+
+## Environment Variables
+
+### Backend (`api/.env`)
+
+| Variable         | Required | Description                    |
+| ---------------- | -------- | ------------------------------ |
+| `DATABASE_URL`   | Yes      | PostgreSQL connection string   |
+| `ENCRYPTION_KEY` | Yes      | 64-char hex key for encryption |
+| `PORT`           | No       | Default: 3333                  |
+| `CORS_ORIGIN`    | No       | Allowed frontend domains       |
+| `AI_PROVIDER`    | No       | ANTHROPIC, MOONSHOT, or NONE   |
+| `AI_API_KEY`     | No       | Your AI provider API key       |
+
+### Frontend (`web/.env`)
+
+| Variable                  | Required | Description                     |
+| ------------------------- | -------- | ------------------------------- |
+| `PUBLIC_API_URL`          | Yes      | Backend API URL                 |
+| `PUBLIC_DEFAULT_LANGUAGE` | No       | en, es, pt-BR, zh               |
+| `PUBLIC_WIDGET_POSITION`  | No       | bottom-right, bottom-left, etc. |
+| `PUBLIC_WIDGET_COLOR`     | No       | Brand color (hex without #)     |
+
+## Internationalization
+
+Supported languages: English, Spanish, Portuguese (BR), Chinese
+
+Add translation in `web/src/lib/i18n/locales/`:
+
+```typescript
+'widget.new_key': 'Your text',
+```
+
+Use in component:
+
+```typescript
+import { t } from "../lib/i18n";
+const text = t("widget.new_key", language);
+```
+
+## Testing
+
+```bash
+# Backend tests
+cd api && npm test
+
+# Frontend tests
+cd web && npm test
+```
+
+## Contributing
+
+Thank you for your interest in contributing!
+
+### Getting Started
+
+1. Fork and clone the repository
+2. Follow the [Quick Start](#-quick-start) above
+3. Create a branch: `git checkout -b feature/your-feature-name`
+
+### Code Style
+
+- **TypeScript**: Strict mode enabled
+- **Naming**: PascalCase for components, camelCase for functions
+- **No `any` types**: Use proper TypeScript types
+
+### Commits
+
+Follow conventional commits:
+
+```
+feat: add new feature
+fix: resolve bug
+refactor: improve code structure
+docs: update documentation
+```
+
+### Pull Request Process
+
+1. Ensure tests pass locally
+2. Update documentation if needed
+3. Link related issues
+4. Request review
+
+### Security Guidelines
+
+- Never commit `.env` files
+- Sanitize user inputs
+- Use parameterized queries
+
+### Internationalization
+
+When adding UI text:
+
+1. Add to all translation files:
+   - `web/src/lib/i18n/locales/en.ts`
+   - `web/src/lib/i18n/locales/es.ts`
+   - `web/src/lib/i18n/locales/pt-BR.ts`
+   - `web/src/lib/i18n/locales/zh.ts`
+
+2. Use the translation key:
+   ```tsx
+   import { t } from "../lib/i18n";
+   const text = t("your.key", language);
+   ```
+
+## Architecture
+
+We follow Clean Architecture principles with clear dependency direction:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    PRESENTATION LAYER                       │
+│              (Controllers, Components, Routes)              │
+├─────────────────────────────────────────────────────────────┤
+│                   APPLICATION LAYER                         │
+│              (Use Cases / Application Services)             │
+├─────────────────────────────────────────────────────────────┤
+│                     DOMAIN LAYER                            │
+│      (Entities, Value Objects, Repository Interfaces)       │
+├─────────────────────────────────────────────────────────────┤
+│                  INFRASTRUCTURE LAYER                       │
+│    (Database, External APIs, Email, Encryption, AI)         │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Dependency Rule**: Dependencies only point inward. Domain has no external dependencies.
+
+### Key Patterns
+
+- **Repository Pattern**: Decouple domain logic from database implementation
+- **Use Cases**: Isolate business operations from HTTP/UI concerns
+- **Dependency Injection**: Enable testing and loose coupling
+- **Client-Side Encryption**: API keys are encrypted in browser, never touch server
+
+### Security Architecture
+
+| Threat              | Mitigation                                    |
+| ------------------- | --------------------------------------------- |
+| SQL Injection       | Prisma ORM (parameterized queries)            |
+| XSS                 | No dangerous innerHTML, safe components       |
+| CSRF                | Stateless API, CORS whitelist                 |
+| Rate limiting       | IP-based limiting (memory-based, use Redis in prod) |
+| API key exposure    | Client-side encryption, never logged          |
+| Screenshot abuse    | 5MB size limit, base64 validation             |
+
+## Documentation
+
+- [API README](api/README.md) - Backend documentation & AI features
+- [Web README](web/README.md) - Frontend documentation & Clean Architecture
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file.
 
 ---
+
+Built for the open source community
