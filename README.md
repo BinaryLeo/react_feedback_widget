@@ -19,7 +19,7 @@ AI-powered feedback widget with intelligent triage, drag & drop positioning, and
 
 ### Drag and Drop Widget
 
-<video src="assets/drag-zone.mov" width="600" controls></video>
+![Drag and Drop Demo](assets/drag-zone.gif)
 
 The widget can be dragged and repositioned anywhere on the screen for optimal user experience.
 
