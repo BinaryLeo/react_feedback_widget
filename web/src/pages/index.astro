@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeContent from '../components/HomeContent';
+import FeedbackWidget from '../components/FeedbackWidget';
+---
+
+<Layout title="Feedback Widget - AI Powered">
+  <HomeContent client:load />
+  <FeedbackWidget client:load />
+</Layout>

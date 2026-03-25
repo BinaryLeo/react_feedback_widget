@@ -1,0 +1,464 @@
+// Chinese (Simplified) translations
+import type { Translations } from './en';
+
+export const zh: Translations = {
+  // ==========================================
+  // COMMON / SHARED STRINGS
+  // ==========================================
+  'common.loading': '加载中...',
+  'common.save': '保存',
+  'common.saving': '保存中...',
+  'common.cancel': '取消',
+  'common.delete': '删除',
+  'common.edit': '编辑',
+  'common.close': '关闭',
+  'common.search': '搜索',
+  'common.filter': '筛选',
+  'common.refresh': '刷新',
+  'common.copy': '复制',
+  'common.copied': '已复制！',
+  'common.error': '错误',
+  'common.success': '成功',
+  'common.retry': '重试',
+  'common.show_more': '显示更多',
+  'common.show_less': '显示更少',
+  'common.back': '返回',
+  'common.next': '下一步',
+  'common.previous': '上一步',
+  'common.continue': '继续',
+  'common.done': '完成',
+  'common.test': '测试',
+  'common.testing': '测试中...',
+  'common.configure': '配置',
+  'common.enabled': '已启用',
+  'common.disabled': '已禁用',
+  'common.default': '默认',
+  'common.recommended': '推荐',
+  'common.optional': '可选',
+  'common.required': '必填',
+
+  // ==========================================
+  // NAVIGATION
+  // ==========================================
+  'nav.dashboard': '仪表板',
+  'nav.feedbacks': '反馈',
+  'nav.analytics': '分析',
+  'nav.settings': '设置',
+  'nav.api_docs': 'API 文档',
+  'nav.logout': '退出',
+  'nav.home': '首页',
+
+  // ==========================================
+  // LANGUAGES
+  // ==========================================
+  'lang.en': '英文',
+  'lang.es': '西班牙文',
+  'lang.pt-BR': '葡萄牙文（巴西）',
+  'lang.zh': '中文',
+  'lang.select': '选择语言',
+  'lang.detected': '检测到语言',
+  'lang.switch': '切换',
+
+  // ==========================================
+  // DASHBOARD PAGE
+  // ==========================================
+  'dashboard.title': '反馈仪表板',
+  'dashboard.subtitle': 'AI 智能分类',
+  'dashboard.total_feedbacks': '反馈总数',
+  'dashboard.new_today': '今日新增',
+  'dashboard.avg_response': '平均响应时间',
+  'dashboard.ai_enabled': 'AI 已启用',
+  'dashboard.no_feedbacks': '未找到反馈',
+  'dashboard.try_adjusting': '尝试调整筛选条件',
+
+  // ==========================================
+  // STATS
+  // ==========================================
+  'stats.total': '总计',
+  'stats.by_type': '按类型',
+  'stats.by_priority': '按优先级',
+  'stats.by_sentiment': '按情感',
+  'stats.by_status': '按状态',
+  'stats.by_team': '按团队',
+  'stats.today': '今天',
+  'stats.this_week': '本周',
+  'stats.this_month': '本月',
+
+  // ==========================================
+  // FILTERS
+  // ==========================================
+  'filter.all': '所有反馈',
+  'filter.all_types': '所有类型',
+  'filter.all_priorities': '所有优先级',
+  'filter.all_statuses': '所有状态',
+  'filter.unassigned': '未分配',
+  'filter.duplicates': '重复项',
+  'filter.search_placeholder': '搜索反馈...',
+
+  // ==========================================
+  // FEEDBACK TYPES
+  // ==========================================
+  'type.BUG': '错误',
+  'type.IDEA': '建议',
+  'type.OTHER': '其他',
+  'type.HELP': '帮助',
+  'type.PRAISE': '好评',
+  'type.QUESTION': '问题',
+  'type.BUG_desc': '报告问题或错误',
+  'type.IDEA_desc': '建议新功能或改进',
+  'type.OTHER_desc': '一般问题或反馈',
+  'type.HELP_desc': '需要帮助或对某事感到困惑',
+  'type.PRAISE_desc': '分享好评或正面反馈',
+  'type.QUESTION_desc': '询问某功能如何使用',
+  'type.BUG_emoji': '错误',
+  'type.IDEA_emoji': '建议',
+  'type.OTHER_emoji': '其他',
+  'type.HELP_emoji': '帮助',
+  'type.PRAISE_emoji': '好评',
+  'type.QUESTION_emoji': '问题',
+
+  // ==========================================
+  // PRIORITY LEVELS
+  // ==========================================
+  'priority.CRITICAL': '严重',
+  'priority.HIGH': '高',
+  'priority.MEDIUM': '中',
+  'priority.LOW': '低',
+  'priority.CRITICAL_emoji': '严重',
+  'priority.HIGH_emoji': '高',
+  'priority.MEDIUM_emoji': '中',
+  'priority.LOW_emoji': '低',
+  'priority.CRITICAL_desc': '应用崩溃、数据丢失、安全问题',
+  'priority.HIGH_desc': '主要功能损坏',
+  'priority.MEDIUM_desc': '小错误或不便',
+  'priority.LOW_desc': '建议或改进',
+
+  // ==========================================
+  // SENTIMENT ANALYSIS
+  // ==========================================
+  'sentiment.FRUSTRATED': '沮丧',
+  'sentiment.HAPPY': '开心',
+  'sentiment.NEUTRAL': '中性',
+  'sentiment.ANGRY': '生气',
+  'sentiment.CONFUSED': '困惑',
+  'sentiment.FRUSTRATED_emoji': '沮丧',
+  'sentiment.HAPPY_emoji': '开心',
+  'sentiment.NEUTRAL_emoji': '中性',
+  'sentiment.ANGRY_emoji': '生气',
+  'sentiment.CONFUSED_emoji': '困惑',
+
+  // ==========================================
+  // CATEGORIES
+  // ==========================================
+  'category.UI_ISSUE': 'UI 问题',
+  'category.PERFORMANCE': '性能',
+  'category.SECURITY': '安全',
+  'category.FEATURE_REQUEST': '功能请求',
+  'category.BUG_REPORT': '错误报告',
+  'category.DOCUMENTATION': '文档',
+  'category.BILLING': '账单',
+  'category.INTEGRATION': '集成',
+  'category.OTHER': '其他',
+  'category.UI_ISSUE_emoji': 'UI问题',
+  'category.PERFORMANCE_emoji': '性能',
+  'category.SECURITY_emoji': '安全',
+  'category.FEATURE_REQUEST_emoji': '功能请求',
+  'category.BUG_REPORT_emoji': 'Bug报告',
+  'category.DOCUMENTATION_emoji': '文档',
+  'category.BILLING_emoji': '账单',
+  'category.INTEGRATION_emoji': '集成',
+  'category.OTHER_emoji': '其他',
+
+  // ==========================================
+  // STATUS
+  // ==========================================
+  'status.PENDING': '待处理',
+  'status.IN_PROGRESS': '处理中',
+  'status.RESOLVED': '已解决',
+  'status.CLOSED': '已关闭',
+  'status.REJECTED': '已拒绝',
+  'status.PENDING_emoji': '待处理',
+  'status.IN_PROGRESS_emoji': '处理中',
+  'status.RESOLVED_emoji': '已解决',
+  'status.CLOSED_emoji': '已关闭',
+  'status.REJECTED_emoji': '已拒绝',
+
+  // ==========================================
+  // TEAMS
+  // ==========================================
+  'team.dev': '开发',
+  'team.design': '设计',
+  'team.support': '支持',
+  'team.product': '产品',
+  'team.security': '安全',
+  'team.finance': '财务',
+  'team.dev_emoji': '开发',
+  'team.design_emoji': '设计',
+  'team.support_emoji': '支持',
+  'team.product_emoji': '产品',
+  'team.security_emoji': '安全',
+  'team.finance_emoji': '财务',
+
+  // ==========================================
+  // FEEDBACK DETAIL
+  // ==========================================
+  'feedback.id': 'ID',
+  'feedback.type': '类型',
+  'feedback.status': '状态',
+  'feedback.priority': '优先级',
+  'feedback.sentiment': '情感',
+  'feedback.category': '类别',
+  'feedback.team': '团队',
+  'feedback.assigned_to': '分配给',
+  'feedback.created_at': '创建时间',
+  'feedback.updated_at': '更新时间',
+  'feedback.ai_analyzed': 'AI 已分析',
+  'feedback.duplicate': '重复',
+  'feedback.view_details': '查看详情',
+  'feedback.mark_resolved': '标记为已解决',
+  'feedback.assign': '分配',
+  'feedback.no_summary': '暂无摘要',
+  'feedback.detail_title': '反馈详情',
+  'feedback.comment': '评论',
+  'feedback.no_feedbacks': '暂无反馈',
+  'feedback.no_feedbacks_desc': '当用户提交反馈时，它们将显示在这里',
+  'feedback.no_feedbacks_filter': '没有匹配筛选条件的反馈',
+  'feedback.try_different_filter': '尝试调整筛选条件查看更多结果',
+  'feedback.clear_filters': '清除所有筛选',
+
+  // ==========================================
+  // DETAIL PAGE
+  // ==========================================
+  'detail.title': '反馈详情',
+  'detail.original_message': '原始消息',
+  'detail.translation': '翻译',
+  'detail.screenshot': '截图',
+  'detail.ai_analysis': 'AI 分析',
+  'detail.ai_summary': 'AI 摘要',
+  'detail.action_items': '行动项',
+  'detail.ai_response': 'AI 建议回复',
+  'detail.metadata': '元数据',
+  'detail.copy_id': '复制 ID',
+  'detail.similarity': '相似度',
+  'detail.confidence': '置信度',
+
+  // ==========================================
+  // SETTINGS PAGE
+  // ==========================================
+  'settings.title': '设置',
+  'settings.subtitle': '配置您的 AI 提供商',
+  'settings.ai_config': 'AI 配置',
+  'settings.ai_description': '配置 AI 提供商以实现智能反馈分类',
+  'settings.provider': 'AI 提供商',
+  'settings.select_provider': '选择 AI 提供商',
+  'settings.api_key': 'API 密钥',
+  'settings.api_key_placeholder': '输入您的 API 密钥',
+  'settings.api_key_help': '您的 API 密钥被安全存储，永远不会被共享。',
+  'settings.model': '模型',
+  'settings.select_model': '选择模型',
+  'settings.custom_url': '自定义基础 URL',
+  'settings.custom_url_placeholder': 'https://api.custom-provider.com/v1',
+  'settings.custom_url_help': '可选：仅自定义部署需要',
+  'settings.features': 'AI 功能',
+  'settings.features_description': '选择要启用的 AI 功能',
+  'settings.thresholds': '阈值',
+  'settings.test_connection': '测试连接',
+  'settings.save_config': '保存配置',
+  'settings.disable_ai': '禁用 AI',
+  'settings.enable_ai': '启用 AI',
+  'settings.note': '注意',
+  'settings.open_source_note': '这是一个开源项目。您需要自备 AI API 密钥。我们永远不会存储或共享您的密钥。',
+  'settings.api_config': 'API 配置',
+  'settings.api_key_hint': '您的 API 密钥安全存储，永不被共享。',
+  'settings.get_api_key': '获取 API 密钥',
+  'settings.opensource_notice': '这是一个开源项目。您需要自备 AI API 密钥。我们永远不会存储或共享您的密钥。',
+  'settings.save': '保存设置',
+
+  // ==========================================
+  // AI MESSAGES
+  // ==========================================
+  'ai.connection_success': '连接成功！',
+  'ai.connection_failed': '连接失败',
+  'ai.network_error': '网络错误',
+  'ai.settings_saved': '设置已保存！',
+  'ai.settings_failed': '保存设置失败',
+
+  // ==========================================
+  // GUARDRAIL PAGE
+  // ==========================================
+  'guardrail.page_title': '业务上下文防护',
+  'guardrail.what_is_this': '这是什么？',
+  'guardrail.description': '描述您的应用程序、其行业以及哪些主题是相关的。AI将使用此上下文来过滤不相关的反馈（例如，在学校应用程序中询问股票价格的用户），并在您的领域内更好地分类和优先处理消息。',
+  'guardrail.context_label': '应用程序和业务上下文',
+  'guardrail.inserting': '正在插入模板...',
+  'guardrail.examples_title': '快速填充示例',
+  'guardrail.save': '保存上下文',
+  'guardrail.placeholder': '示例：这是一个供学生和教师使用的教育平台的反馈小部件。相关主题：课程、成绩、作业、登录问题、平台错误、学习工具的功能建议。无关：财务建议、房地产、天气。',
+  
+  // ==========================================
+  // GUARDRAIL EXAMPLES
+  // ==========================================
+  'guardrail.example.school.label': '学校 / 教育',
+  'guardrail.example.school.value': '这是一个供学生和教师使用的教育平台的反馈小部件。相关主题：课程、成绩、作业、登录问题、平台错误、学习工具的功能建议。无关：财务建议、房地产、天气、无关的个人请求。',
+  'guardrail.example.ecommerce.label': '电子商务',
+  'guardrail.example.ecommerce.value': '这是一个在线商店的反馈小部件。相关：产品页面、结账、付款、配送、退货、账户问题、应用错误、功能建议。无关：政治观点、无关服务、离题问题。',
+  'guardrail.example.saas.label': 'SaaS / B2B工具',
+  'guardrail.example.saas.value': '这是一个供团队使用的SaaS项目管理工具的反馈小部件。相关：任务、项目、协作功能、集成、计费、错误、性能。无关：个人娱乐、一般琐事、无关主题。',
+  'guardrail.example.healthcare.label': '医疗健康应用',
+  'guardrail.example.healthcare.value': '这是一个医疗预约和健康应用的反馈小部件。相关：预约安排、医生搜索、预约提醒、健康记录、应用错误。无关：财经新闻、无关主题、离题请求。',
+
+  // ==========================================
+  // PROVIDER NAMES & DESCRIPTIONS
+  // ========================================== Names & Descriptions (for Settings)
+  'settings.providers.NONE.name': '禁用',
+  'settings.providers.NONE.description': '不使用 AI 运行',
+  'settings.providers.MOONSHOT.name': 'Moonshot AI',
+  'settings.providers.MOONSHOT.description': 'Kimi 模型 - 多语言支持出色',
+  'settings.providers.ANTHROPIC.name': 'Anthropic Claude',
+  'settings.providers.ANTHROPIC.description': 'Claude 模型 - 推理能力优秀',
+
+  // Model display names
+  'settings.models.kimi-k2.5': 'Kimi K2.5 - 最大多功能性 (推荐)',
+  'settings.models.kimi-k2-0905-preview': 'Kimi K2 - 通用、编程',
+  'settings.models.kimi-k2-turbo-preview': 'Kimi K2 Turbo - 最快速度',
+  'settings.models.kimi-k2-thinking': 'Kimi K2 Thinking - 深度推理',
+  'settings.models.claude-sonnet-4-20250514': 'Claude Sonnet 4 - 最佳平衡',
+  'settings.models.claude-opus-4-20250514': 'Claude Opus 4 - 最强能力',
+  'settings.models.claude-haiku-4-20250514': 'Claude Haiku 4 - 最快',
+
+  // ==========================================
+  // PROVIDER NAMES & DESCRIPTIONS
+  // ==========================================s
+  'provider.NONE': '禁用',
+  'provider.NONE_desc': '不使用 AI 功能运行',
+  'provider.MOONSHOT': 'Moonshot AI (Kimi)',
+  'provider.MOONSHOT_desc': '擅长中文和多语言支持',
+  'provider.ANTHROPIC': 'Anthropic (Claude)',
+  'provider.ANTHROPIC_desc': '出色的推理和分析能力',
+  'provider.OPENAI': 'OpenAI (GPT)',
+  'provider.OPENAI_desc': 'GPT-4 和 GPT-3.5 模型',
+  'provider.get_key': '获取 API 密钥',
+  'provider.docs': '文档',
+
+  // Models
+  'model.kimi-k2.5': 'Kimi K2.5',
+  'model.kimi-k2.5_desc': '最大多功能性 - 总体最佳（推荐）',
+  'model.kimi-k2-0905-preview': 'Kimi K2',
+  'model.kimi-k2-0905-preview_desc': '通用、编程 - 最佳性价比',
+  'model.kimi-k2-turbo-preview': 'Kimi K2 Turbo',
+  'model.kimi-k2-turbo-preview_desc': '最快速度 - 延迟关键时使用',
+  'model.kimi-k2-thinking': 'Kimi K2 Thinking',
+  'model.kimi-k2-thinking_desc': '深度推理 - 复杂问题逐步解决',
+  'model.claude-sonnet-4-20250514': 'Claude Sonnet 4',
+  'model.claude-sonnet-4-20250514_desc': '最新 Sonnet - 速度和质量最佳平衡',
+  'model.claude-opus-4-20250514': 'Claude Opus 4',
+  'model.claude-opus-4-20250514_desc': '最强能力 - 复杂推理',
+  'model.claude-haiku-4-20250514': 'Claude Haiku 4',
+  'model.claude-haiku-4-20250514_desc': '最快速度 - 简单任务',
+
+  // Features
+  'feature.auto_categorize': '自动分类',
+  'feature.auto_categorize_desc': '自动分类反馈类型',
+  'feature.validate_type': '类型验证',
+  'feature.validate_type_desc': '检查用户是否选择了正确的类型',
+  'feature.priority_scoring': '优先级评分',
+  'feature.priority_scoring_desc': '根据内容自动分配优先级',
+  'feature.sentiment_analysis': '情感分析',
+  'feature.sentiment_analysis_desc': '检测用户情绪',
+  'feature.auto_response': '自动回复',
+  'feature.auto_response_desc': '生成有用的回复草稿',
+  'feature.screenshot_analysis': '截图视觉',
+  'feature.screenshot_analysis_desc': '分析附件截图',
+  'feature.duplicate_detection': '重复检测',
+  'feature.duplicate_detection_desc': '查找相似的现有反馈',
+  'feature.smart_routing': '智能路由',
+  'feature.smart_routing_desc': '自动路由到正确的团队',
+  'feature.language_detection': '语言检测',
+  'feature.language_detection_desc': '自动检测用户语言',
+
+  // Thresholds
+  'threshold.min_confidence': '最低置信度',
+  'threshold.min_confidence_desc': 'AI 建议的最低置信度',
+  'threshold.duplicate': '重复阈值',
+  'threshold.duplicate_desc': '重复检测的相似度分数',
+
+  // Widget
+  'widget.title': '发送反馈',
+  'widget.subtitle': '您想告诉我们什么？',
+  'widget.placeholder': '告诉我们您的想法...',
+  'widget.attach_screenshot': '附加截图',
+  'widget.capturing': '正在捕获页面...',
+  'widget.capturing_wait': '这可能需要一点时间',
+  'widget.screenshot_attached': '截图已附加',
+  'widget.screenshot_preview': '截图预览',
+  'widget.remove_screenshot': '移除',
+  'widget.send': '发送反馈',
+  'widget.sending': '发送中...',
+  'widget.send_anyway': '仍然发送',
+  'widget.irrelevant_title': '消息与本应用无关',
+  'widget.irrelevant_message': '请发送与本应用相关的反馈。请尝试描述一个错误、分享一个想法或询问某个功能的问题。',
+  'widget.try_again': '重试',
+  'widget.cannot_send_irrelevant': '无法发送 - 不相关',
+  'widget.review_type_first': '请先查看类型',
+  'widget.not_related': '与我们的平台无关',
+  'widget.thank_you': '谢谢！',
+  'widget.thank_you_message': '您的反馈帮助我们改进。',
+  'widget.powered_by': '由 Feedback Widget 提供支持',
+  'widget.analyzing': '分诊助手分析中...',
+  'widget.ai_suggestion': 'AI 建议',
+  'widget.switch_to': '切换到',
+  'widget.keep': '保持',
+  'widget.possible_duplicate': '检测到可能的重复项',
+  'widget.view_similar': '查看相似项',
+  'widget.ai_response': 'AI 回复',
+  'widget.ai_analysis': 'AI 分析',
+  'widget.confidence': '置信度',
+  'widget.detected_language': '检测到的语言',
+  'widget.char_count': '{{count}}/1000',
+  'widget.type_mismatch_title': '检测到类型不匹配',
+  'widget.type_mismatch_desc': '这看起来更像 {{suggested}} 而不是 {{current}}',
+  'widget.type_mismatch_reason': 'AI 认为这是 {{suggested}}，因为：{{reason}}',
+
+  // Errors
+  'error.capture_failed': '无法捕获截图。请重试。',
+  'error.submit_failed': '提交反馈失败。请重试。',
+  'error.ai_analysis_failed': 'AI 分析失败，但您的反馈已保存。',
+  'error.connection_failed': '连接失败。请检查您的 API 密钥。',
+  'error.invalid_api_key': 'API 密钥无效。请检查并重试。',
+  'error.rate_limit': '超出速率限制。请稍后再试。',
+  'error.network': '网络错误。请检查您的连接。',
+  'error.unknown': '发生意外错误。',
+  'error.not_found': '未找到。',
+  'error.unauthorized': '未授权。请检查您的凭据。',
+
+  // Success
+  'success.feedback_submitted': '反馈提交成功！',
+  'success.settings_saved': '设置保存成功！',
+  'success.connection_success': '连接成功！',
+  'success.copied': '已复制到剪贴板！',
+
+  // Home
+  'home.title': 'Feedback Widget',
+  'home.subtitle': '具有 AI 智能分类、情感分析和多语言支持的反馈组件',
+  'home.try_it': '立即试用！',
+  'home.quick_start': '快速开始',
+  'home.step_1': '点击右下角的紫色按钮打开组件',
+  'home.step_2': '选择您的语言和反馈类型',
+  'home.step_3': '输入您的反馈 - AI 将实时分析',
+  'home.step_4': '前往 [link]AI 设置[/link] 添加您自己的 API 密钥进行测试',
+  'home.feature_ai_title': 'AI 智能分类',
+  'home.feature_ai_desc': '自动分类、优先级评分和情感分析。',
+  'home.feature_vision_title': 'AI 视觉',
+  'home.feature_vision_desc': '截图捕获和 AI 驱动的 UI 问题分析。',
+  'home.feature_i18n_title': '多语言',
+  'home.feature_i18n_desc': '自动检测和翻译。支持 EN、ES、PT、ZH。',
+  'home.dashboard_title': '管理仪表板',
+  'home.dashboard_desc': '查看带有 AI 洞察和分析的传入反馈',
+  'home.settings_title': 'AI 设置',
+  'home.settings_desc': '配置您的 AI 提供商（Moonshot/Claude）进行测试',
+  'home.report_bug': '报告错误',
+  'home.share_idea': '分享想法',
+  'home.ask_question': '提问',
+  'home.try_it_desc': '点击右下角的紫色反馈按钮。AI将实时分析您的反馈，并建议正确的类别、优先级，甚至生成回复！',
+  'home.tech_stack': '技术栈',
+};

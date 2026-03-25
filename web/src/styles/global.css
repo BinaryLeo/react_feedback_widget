@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Custom styles for the feedback widget */
+@theme {
+  --color-brand-500: #8257e6;
+  --color-brand-400: #996dff;
+  --color-brand-300: #b08dfd;
+}
+
+/* html2canvas optimization */
+[data-html2canvas-ignore] {
+  visibility: hidden !important;
+}
+
+/* Screenshot preview hover effect */
+.screenshot-preview {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.screenshot-preview:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(130, 87, 230, 0.15);
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.3s ease-out;
+}
+
+.animate-slideInDown {
+  animation: slideInDown 0.3s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Draggable widget styles */
+.feedback-widget-button {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.feedback-widget-button:active {
+  cursor: grabbing;
+}
+
+.feedback-widget-button.dragging {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
+/* Position transition for smooth movement */
+.feedback-widget-container {
+  transition: all 0.3s ease;
+}
